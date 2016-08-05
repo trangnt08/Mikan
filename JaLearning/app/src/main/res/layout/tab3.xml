@@ -16,13 +16,13 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
             android:padding="10dp"
+            android:gravity="center"
             android:orientation="horizontal">
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/ibL2"
+                android:id="@+id/ibL3"
                 android:src="@drawable/ic_keyboard_left"/>
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -33,25 +33,27 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:textSize="18sp"
                     android:text="Rank"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Rank2"
+                    android:layout_gravity="center"
+                    android:text="Rank3"
                     android:textColor="@color/gplus_color_1"
                     android:textSize="25sp"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="2/5"
+                    android:text="3/5"
                     android:textSize="20sp"/>
             </LinearLayout>
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/ibR2"
+                android:id="@+id/ibR3"
                 android:src="@drawable/ic_keyboard_arrow_right_black_24dp"/>
         </LinearLayout>
         <LinearLayout

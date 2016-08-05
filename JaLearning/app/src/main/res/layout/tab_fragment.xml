@@ -48,8 +48,8 @@
             app:secondaryProgressColor="#ff3344"
             app:primaryCapSize="20"
             app:secodaryCapSize="20"
-            app:primaryCapVisibility="true"
-            app:secodaryCapVisibility="true"
+            app:primaryCapVisibility="false"
+            app:secodaryCapVisibility="false"
             android:layout_width="260dp"
             android:layout_height="260dp" />
         <TextView
