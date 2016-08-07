@@ -2,18 +2,31 @@ package com.example.thuytrangnguyen.jalearning;
 
 import android.app.Fragment;
 import android.app.FragmentTransaction;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
+
+import com.msquare.widget.mprogressbar.MProgressBar;
 
 /**
  * Created by Thuy Trang Nguyen on 8/3/2016.
  */
 public class Tab1 extends Fragment {
-
+    private Context context;
+    private MProgressBar mProgressBar;
+    private TextView tvPro;
+    int a;
+    int mProgressStatus=0;
+    int mProgressStatus2=0;
+    private Handler mHandler = new Handler();
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,8 +37,18 @@ public class Tab1 extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.tab1, container, false);
+        context = getActivity();
+
+        mProgressBar = (MProgressBar)view.findViewById(R.id.mprocess);
+        tvPro = (TextView)view.findViewById(R.id.txt_secondsleft);
+
         ImageButton imageButton1 = (ImageButton)view.findViewById(R.id.ib1);
         ImageButton imageButton2 = (ImageButton)view.findViewById(R.id.ib2);
+        Button bt1 = (Button)view.findViewById(R.id.btMinus1);
+        Button bt2 = (Button)view.findViewById(R.id.btPrepare1);
+        a= 20;
+        tvPro.setText(a+"%");
+        setCircleProgress(20,60);
 
         imageButton1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,6 +69,48 @@ public class Tab1 extends Fragment {
             }
         });
 
+        bt1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showIntent(context);
+            }
+        });
+        bt2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showIntent(context);
+            }
+        });
+
         return view;
+    }
+
+    private void setCircleProgress(final int a,final int b){
+        new Thread(new Runnable() {
+            public void run() {
+                while (mProgressStatus < a || mProgressStatus2 < b) {
+                    if (mProgressStatus < a) {
+                        mProgressStatus++;
+                    }
+                    mProgressStatus2++;
+                    // Update the progress bar
+                    mHandler.post(new Runnable() {
+                        public void run() {
+                            mProgressBar.setProgress(mProgressStatus);
+                            mProgressBar.setSecondaryProgress(mProgressStatus2);
+                        }
+                    });
+                    try {
+                        Thread.sleep(30);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }).start();
+    }
+    private void showIntent(Context context){
+        Intent intent = new Intent(context,Answer.class);
+        context.startActivity(intent);
     }
 }

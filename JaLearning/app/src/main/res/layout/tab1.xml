@@ -63,24 +63,32 @@
             android:paddingRight="10dp"
             android:orientation="horizontal">
             <Button
+                android:id="@+id/btMinus1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:background="@drawable/border_button"
                 android:layout_weight="0.5"
                 android:text="苦手な単語"/>
             <Button
+                android:id="@+id/btPrepare1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:background="@drawable/border_bt2"
                 android:layout_weight="0.5"
                 android:text="ランダム"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp">
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="10dp">
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/border_bt3"
                 android:layout_weight="1"
                 android:text="Ôn tập"/>
         </LinearLayout>
